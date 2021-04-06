@@ -6,6 +6,7 @@ import defaultImage from "../../../images/defaultImg.jpg";
 import {deleteProduct} from "../../../services/api_service";
 
 const ProductList = ({productList}) => {
+    console.log(productList)
     return (
         <>
             {productList && (
