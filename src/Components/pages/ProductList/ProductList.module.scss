@@ -1,0 +1,80 @@
+.TitleHeader {
+  margin: 15px auto;
+  text-align: center;
+  color: #505d57;
+}
+
+.NotFound {
+  color: #c80142;
+}
+
+.ProductGallery {
+  display: grid;
+  max-width: calc(100vw - 48px);
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-gap: 16px;
+  margin: 15px auto;
+  padding: 0;
+  list-style: none;
+
+  .ProductGalleryItem {
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.12);
+
+    .ProductGalleryItemImage {
+      background-color: #e2be99;
+      border: 1px solid #2d2727;
+      display: block;
+      vertical-align: top;
+      max-width: 100%;
+      width: 470px;
+      height: 244px;
+      object-fit: cover;
+      transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .ProductGalleryItem:hover {
+      transform: scale(1.03);
+      cursor: zoom-in;
+    }
+
+    .TitleProduct {
+      position: absolute;
+      color: #3a313e;
+      font-size: 20px;
+      font-weight: 500;
+      z-index: 10;
+      bottom: 24px;
+      left: 12px;
+    }
+      span {
+        position: absolute;
+        color: #3a313e;
+        font-size: 14px;
+        font-weight: 300;
+        z-index: 10;
+        bottom: 10px;
+        left: 12px;
+      }
+
+  }
+  .Button {
+    position: absolute;
+    bottom: 10px;
+    right: 12px;
+    border: none;
+    padding: 7px 10px;
+    background-color: rgb(136, 35, 35);
+    color: white;
+    font-family: inherit;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 1px 2px 2px 0 rgba(0, 0, 0, 0.5);
+    transition: box-shadow 250ms linear;
+    text-decoration: none;
+  }
+}
