@@ -4,6 +4,7 @@ import {Modal} from "react-bootstrap";
 import Button_ from "react-bootstrap/Button";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {addProduct} from "../../services/api_service";
+import {toast} from "react-toastify";
 
 const AddProductForm = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -35,8 +36,33 @@ const AddProductForm = () => {
                 break;
         }
     };
-    const addNewProduct = () => {
-        addProduct(name,count,width,height,weight);
+    const validatorInput = () => {
+        if (!weight || !height || !width || !count || !name) {
+            toast.error('Any field is entry. Try again!', {
+                autoClose: 4000,
+                position: 'top-center',
+            });
+            return false;
+        }
+        return true;
+    };
+
+    const resetForm = () => {
+        setName('');
+        setCount("");
+        setWidth("");
+        setHeight("");
+        setWeight("");
+    };
+
+    const addNewProduct = (e) => {
+        e.preventDefault();
+        const formIsValid = validatorInput();
+        if (!formIsValid) {
+            return;
+        }
+        addProduct(name, count, width, height, weight);
+        resetForm();
         closeModal();
     }
     return (
@@ -67,6 +93,7 @@ const AddProductForm = () => {
                         <Input
                             id="count"
                             name="count"
+                            type="number" min="0"
                             autoFocus
                             onChange={handleInputChange}
                             value={count}
@@ -78,6 +105,7 @@ const AddProductForm = () => {
                         <Input
                             id="width"
                             name="width"
+                            type="number" min="0"
                             autoFocus
                             onChange={handleInputChange}
                             value={width}
@@ -89,6 +117,7 @@ const AddProductForm = () => {
                         <Input
                             id="height"
                             name="height"
+                            type="number" min="0"
                             autoFocus
                             onChange={handleInputChange}
                             value={height}
@@ -100,6 +129,7 @@ const AddProductForm = () => {
                         <Input
                             id="weight"
                             name="weight"
+                            type="number" min="0"
                             autoFocus
                             onChange={handleInputChange}
                             value={weight}
