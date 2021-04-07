@@ -15,7 +15,7 @@ const HomePage = ({productList}) => {
     };
     return (
         <>
-            <Filter onFormSubmit={onFormSubmit}/>
+            {/*<Filter onFormSubmit={onFormSubmit}/>*/}
             <FilterCount productList={productList}
                          callback={setListQuantityFilter}/>
 
